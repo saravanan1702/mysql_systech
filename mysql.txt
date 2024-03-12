@@ -1,0 +1,40 @@
+#1
+Show databases;
+#2
+create database if not exists company;
+#3
+show databases;
+#4
+use company;
+#5
+show tables;
+#6 
+create table if not exists employee(no varchar(3),name varchar(20),sal varchar(6));
+#7 
+create table if not exists companies(
+id int,
+name varchar(50),
+address text(50),
+email varchar(50),
+phone varchar(10)
+);
+#8 
+insert into employee(no,name,sal) values("101","ram","20000");
+#9 
+select * from employee;
+#10 
+drop database abc;
+#11 
+select * from employee where no=101;
+#12 
+delete from employee where no=105;
+#13 
+select * from employee;
+#14 
+delete from employee;
+#15
+truncate table employee;
+#16
+select * from employee;
+#17
+select no, sal from employee;

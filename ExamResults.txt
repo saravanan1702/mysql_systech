@@ -1,0 +1,54 @@
+#1
+show tables;
+
+#2
+create table if not exists examresult
+(
+ rno int primary key auto_increment,
+ sname varchar(10) not null,
+ m1 numeric(5,2) check (m1>=0),
+ m2 numeric(5,2) check(m2>=0),
+ total numeric(6,2)  as (m1+m2),
+ average numeric (5,2) as (total/2),
+ result char(4) as (if (m1>34.4 and m2 >34.4,'Pass','Fail'))
+)auto_increment=1001;
+
+#3
+select * from examresult;
+
+table name : examresult
+columns-> rno,sname,m1,m2,total,avg,result
+
+#4
+insert statement make one/more rows alias name is records;
+
+insert examresult(sname,m1,m2) values ('x5',45.5,52);
+
+#5
+select * from examresult;
+
+#6
+insert examresult(sname,m1,m2)
+values
+('x3',98,20),
+('x1',36.5,43),
+('x2',41,43.5),
+('x4',63.5,61);
+
+#7
+select * from examresult;
+
+#8
+update statement modify one/more rows or records;
+
+update examresult set m1=70,m2=59.5 where rno=1002;
+
+#9
+select * from examresult;
+
+#10
+(erase one or more rows (or) records) 
+delete from examresult where rno=1003;
+
+#11
+select * from examresult;
