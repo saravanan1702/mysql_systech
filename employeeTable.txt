@@ -1,0 +1,32 @@
+use company;
+create table if not exists eatbl
+(
+ eid int primary key auto_increment,
+ sname varchar(10) not null,
+ sal numeric(10,2),
+ hra numeric(10,2)  as (sal*0.20),
+ da numeric (10,2) as (sal*0.15),
+ pf numeric (10,2) as (sal*0.35),
+ gp numeric (10,2) as (sal+hra+pf),
+ np numeric (10,2) as (gp-pf)
+)auto_increment=1001;
+
+show tables;
+select * from eatbl;
+insert eatbl(sname,sal) values ('Saravanan',999999.99);
+insert eatbl(sname,sal) values ('Santhosh',6000000.99);  
+
+create table if not exists eatbl2
+(
+ eid int primary key auto_increment,
+ sname varchar(10) not null,
+ sal numeric(10,2),
+ hra numeric(10,2)  as (sal*0.20),
+ da numeric (10,2) as (sal*0.15),
+ pf numeric (10,2) as (sal*0.35),
+ gp numeric (10,2) as (sal+hra+da),
+ np numeric (10,2) as (gp-pf)
+)auto_increment=1001;
+insert eatbl2(sname,sal) values ('Saravanan',999999.99);
+insert eatbl2(sname,sal) values ('Santhosh',6000000.99);  
+select * from eatbl2;
